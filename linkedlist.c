@@ -31,7 +31,7 @@ int main()
     {
         scanint(&x);
         new->data = x;
-        cur = (node *)malloc(sizeof(node));
+        cur = (node *)malloc(sizeof(node));                 // After data is allocated to previous node, a new node is then created
         new->next = cur;
         new = cur;
         new->next = NULL;
@@ -44,7 +44,7 @@ int main()
     return 0;
 }
 
-void printlist(node *head)
+void printlist(node *head)                                  // Prints list
 {
     node *temp;
     temp = head;
@@ -61,7 +61,7 @@ node * delete_element(int n, node *head)
     node *temp,*todel;
     temp = head;
     int check=0;
-    if(temp->data == n)
+    if(temp->data == n)                                     // To delete the element if it is present at the head node
     {
         todel = head;
         head = head->next;
