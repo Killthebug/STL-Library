@@ -15,8 +15,9 @@ typedef struct xyz{
 
 void scanint(int *p);
 void printlist(node *head);
+void insert_at_beg()
 node * delete_element(int n, node *head);
-    
+
 node *head,*tail,*cur,*new;
 int len,x,i,n;
 
@@ -41,6 +42,7 @@ int main()
     scanint(&n);
     head = delete_element(n,head);
     printlist(head);
+    printf("Now we enter the extra element to head of linked list");
     return 0;
 }
 
@@ -71,17 +73,17 @@ node * delete_element(int n, node *head)
     else
     {
 
-    while(temp->next != NULL)
-    {
-        if(temp->next->data == n)
+        while(temp->next != NULL)
         {
-            todel = temp->next;
-            temp->next = temp->next->next;
-            free(todel);
-            check = 1;
+            if(temp->next->data == n)
+            {
+                todel = temp->next;
+                temp->next = temp->next->next;
+                free(todel);
+                check = 1;
+            }
+            temp = temp->next;
         }
-        temp = temp->next;
-    }
     }
     if(check == 1)
         printf("Deleted\n");
@@ -90,7 +92,30 @@ node * delete_element(int n, node *head)
 
     return head;
 }
+void insert_at_beg()
+{
+    struct node *new_node,*current;
 
+    new_node=(struct node *)malloc(sizeof(struct node));
+
+    if(new_node == NULL)
+        printf("nFailed to Allocate Memory");
+
+    printf("nEnter the data : ");
+    scanf("%d",&new_node->data);
+    new_node->next=NULL;
+
+    if(start==NULL)
+    {
+        start=new_node;
+        current=new_node;
+    }
+    else
+    {
+        new_node->next=start;
+        start=new_node;
+    }
+}
 void scanint(int *p)
 {
     register int c = getchar_unlocked();
