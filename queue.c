@@ -14,7 +14,7 @@ typedef struct xyz{
 }node;
 
 node * dequeue(node *head);
-void printlist(node *head);
+void printqueue(node *head);
 
 node *fordel,*head,*tail,*cur,*new;
 int len,x,i,n;
@@ -35,7 +35,7 @@ int main()
         new = cur;
         new->next = NULL;
     }
-    printlist(head);
+    printqueue(head);
     printf("How many elements do you want to delete?");
     scanf("%d",&n);
     for(i=0;i<n;i++)
@@ -43,11 +43,11 @@ int main()
         fordel = dequeue(head);
         head = fordel;
     }
-    printlist(head);
+    printqueue(head);
     return 0;
 }
 
-void printlist(node *head)                                  // Prints list
+void printqueue(node *head)                                  // Prints list
 {
     node *temp;
     temp = head;
