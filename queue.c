@@ -15,7 +15,7 @@ typedef struct xyz{
 
 node * dequeue(node *head);
 void printqueue(node *head);
-
+//#GABTIPS was here
 node *fordel,*head,*tail,*cur,*new;
 int len,x,i,n;
 
